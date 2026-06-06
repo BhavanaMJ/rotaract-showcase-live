@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Bell, User, Settings, LogOut, Sun, Moon } from 'lucide-react';
+import { Bell, User, Settings, LogOut, Sun, Moon, Menu } from 'lucide-react';
 import { useAdminStore } from '../../store/adminStore';
 
 interface AdminNavbarProps {
   sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
   isBioluminescent: boolean;
   setIsBioluminescent: (val: boolean) => void;
   setCurrentTab: (tab: string) => void;
@@ -11,6 +12,7 @@ interface AdminNavbarProps {
 
 export const AdminNavbar: React.FC<AdminNavbarProps> = ({ 
   sidebarOpen, 
+  setSidebarOpen, 
   isBioluminescent, 
   setIsBioluminescent,
   setCurrentTab
@@ -64,11 +66,18 @@ export const AdminNavbar: React.FC<AdminNavbarProps> = ({
   return (
     <header 
       className={`fixed top-0 right-0 h-16 z-35 bg-[#020617]/40 backdrop-blur-md border-b border-white/5 transition-all duration-300 flex items-center justify-between px-6 ${
-        sidebarOpen ? 'left-64' : 'left-20'
+        sidebarOpen ? 'left-0 md:left-64' : 'left-0 md:left-20'
       }`}
     >
       {/* Title / Info Capsule */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="p-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white md:hidden cursor-pointer"
+          title="Toggle Navigation Menu"
+        >
+          <Menu className="h-4.5 w-4.5" />
+        </button>
         <h2 className="text-sm sm:text-base font-serif font-bold text-white tracking-wide">
           {user?.club ? `${user.club} Core` : 'Rotaract District Operations'}
         </h2>

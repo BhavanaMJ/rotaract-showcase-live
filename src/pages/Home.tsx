@@ -277,7 +277,7 @@ export const Home: React.FC<HomeProps> = ({ setCurrentTab, setSelectedProjectId 
             {sortedProjects.map((project, idx) => {
               const rank = idx + 1;
               return (
-                <div key={project.id} className="snap-start shrink-0 w-[340px] md:w-[370px]">
+                <div key={project.id} className="snap-start shrink-0 w-[85vw] sm:w-[340px] md:w-[370px]">
                   <GlassCard
                     onClick={() => handleProjectClick(project.id)}
                     className="h-full flex flex-col justify-between"

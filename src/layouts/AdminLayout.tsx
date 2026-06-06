@@ -62,15 +62,24 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({
         setCurrentTab={setCurrentTab} 
       />
 
+      {/* Overlay Backdrop for Mobile when Sidebar is Open */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm md:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Main viewport */}
       <div 
         className={`flex-1 flex flex-col min-h-screen transition-all duration-300 ${
-          sidebarOpen ? 'pl-64' : 'pl-20'
+          sidebarOpen ? 'pl-0 md:pl-64' : 'pl-0 md:pl-20'
         }`}
       >
         {/* Navbar */}
         <AdminNavbar 
           sidebarOpen={sidebarOpen} 
+          setSidebarOpen={setSidebarOpen} 
           isBioluminescent={isBioluminescent} 
           setIsBioluminescent={setIsBioluminescent}
           setCurrentTab={setCurrentTab}
