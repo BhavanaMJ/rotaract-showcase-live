@@ -284,11 +284,11 @@ export const Home: React.FC<HomeProps> = ({ setCurrentTab, setSelectedProjectId 
                   >
                     <div>
                       {/* Image Overlay */}
-                      <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4">
+                      <div className="relative h-44 w-full rounded-xl overflow-hidden mb-4 bg-white/5 flex items-center justify-center p-6">
                         <img
-                          src={project.image}
-                          alt={project.title}
-                          className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                          src="/district-logo.jpg"
+                          alt="District Logo"
+                          className="max-h-full max-w-full object-contain transition-transform duration-500 hover:scale-110 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]"
                         />
                         <div className="absolute top-2 left-2 rounded-lg bg-black/60 backdrop-blur-md px-2 py-1 border border-white/10 font-mono text-[10px] text-cyan-400 font-bold">
                           REEF #{rank}
